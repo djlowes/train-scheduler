@@ -1,7 +1,3 @@
-//Important variable
-time = Date.now();
-console.log(typeof trainName)
-
 //Firebase Config
 var config = {
   apiKey: "AIzaSyACI663gzqkpyqCUO9b68zMqbpK6Spqd4Y",
@@ -16,6 +12,7 @@ var dataRef = firebase.database();
 
 //Clock function
 timer = setInterval(function() {
+  let time = moment();
   var clock = moment(time).format("HH:mm:ss");
   $("#time").text(clock);
 }, 1000);
@@ -52,7 +49,6 @@ $("#submit-train").on("click", function(event) {
 });
   //Pull from DB
   dataRef.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val().trainName);
   //Create Rows for Table
   var tableRow = $('<tr>');
   var tableDataString =
