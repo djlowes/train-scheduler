@@ -1,0 +1,89 @@
+body {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+h1 {
+  text-align: center;
+}
+
+#header {
+  margin-bottom: 5%;
+  margin-top: 5%;
+  padding: 2%;
+  color: white;
+  background: #481d74;
+  border-radius: 15px;
+  background: #7d7e7d; /* Old browsers */
+  background: -webkit-linear-gradient(#7d7e7d 0%, #0e0e0e 100%);
+  background: -o-linear-gradient(#7d7e7d 0%, #0e0e0e 100%);
+  background: linear-gradient(#7d7e7d 0%, #0e0e0e 100%); /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */ /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */
+}
+
+#wrapper {
+  border: 1px darkgrey solid;
+  padding-bottom: 2%;
+  border-radius: 15px;
+}
+
+#add-train {
+  color: black;
+  padding: 1%;
+  padding-left: 1%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top, #eeeeee 21%, #cccccc 75%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #eeeeee 21%,#cccccc 75%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #eeeeee 21%,#cccccc 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+#train-label, #destination-label, #first-train-label, #frequency-label {
+  padding: 1%;
+}
+
+#train-schedule {
+  color: black;
+  padding: 1%;
+  padding-left: 1%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background: #eeeeee; /* Old browsers */
+  background: -moz-linear-gradient(top, #eeeeee 21%, #cccccc 75%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #eeeeee 21%,#cccccc 75%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #eeeeee 21%,#cccccc 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+}
+
+#schedule-wrapper {
+  margin-bottom: 5%;
+  border: 1px darkgrey solid;
+  border-radius: 15px;
+}
+
+#submit-train {
+  margin-left: 1%;
+}
+
+#trains {
+  padding: 1%;
+  width: 100%;
+  text-align: center;
+}
+
+#tableOne {
+  text-align: center;
+  width: 100%;
+}
+
+#time {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border: black 1px dotted;
+  text-align: center;
+  margin-left: 30%;
+  margin-right: 30%;
+  font-size: 4em;
+}
