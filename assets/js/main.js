@@ -1,12 +1,12 @@
 //Firebase Config
 var config = {
-  apiKey: "AIzaSyACI663gzqkpyqCUO9b68zMqbpK6Spqd4Y",
-  authDomain: "countdown-1d39a.firebaseapp.com",
-  databaseURL: "https://countdown-1d39a.firebaseio.com",
-  projectId: "countdown-1d39a",
-  storageBucket: "countdown-1d39a.appspot.com",
-  messagingSenderId: "90439567725"
-};
+    apiKey: "AIzaSyAskmrWwU6cDbIMZPdKQsYTPdzHiyNSULM",
+    authDomain: "train-timetable-552b5.firebaseapp.com",
+    databaseURL: "https://train-timetable-552b5.firebaseio.com",
+    projectId: "train-timetable-552b5",
+    storageBucket: "train-timetable-552b5.appspot.com",
+    messagingSenderId: "686010964636"
+  };
 firebase.initializeApp(config);
 var dataRef = firebase.database();
 
@@ -25,18 +25,26 @@ $("#submit-train").on("click", function(event) {
   //Assign Variables to Input Values
   trainName = $("#train-name").val().trim();
   destination = $("#destination").val().trim();
-  firstTrain = $("#first-train-time").val().trim()
+  firstTrain = $("#first-train-time").val().trim();
   frequency = $("#frequency").val().trim()
   //Make sure variables have time values for calculation
-  moment(firstTrain).format("HH:mm");
-  moment(frequency).format("mm");
+  var timeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+  var minConverted = moment(frequency, "hh:mm").subtract(1, "years");
+
+  var currentTime = moment();
+  var inMinutes = moment().diff(moment(timeConverted), "minutes");
+  var inMinutes2 = moment().diff(moment(minConverted), "minutes");
+  var tRemainder = inMinutes % inMinutes2;
+  minutesAway = inMinutes2 - tRemainder;
+  nextArrival = moment().add(minutesAway, "minutes");
+
   //var train = new Date(firstTrain).getTime() / 1000
   //Calculations
 
-  var nextArrival = 0
+  //var nextArrival = new Array(1000 - frequency--);
+//  console.log(nextArrival);
   //console.log(typeof nextArrival)
   //console.log(typeof time)
-  var minutesAway = time - nextArrival;
 
   //Push to database
   dataRef.ref().push({
