@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans|Russo+One');
 @import url('https://fonts.googleapis.com/css?family=Raleway');
+@import url('https://fonts.googleapis.com/css?family=Orbitron');
 
 body {
   margin-left: 20%;
@@ -29,6 +30,7 @@ h1 {
   border: 1px darkgrey solid;
   padding-bottom: 2%;
   border-radius: 15px;
+  margin-bottom: 7.5%;
 }
 
 #add-train {
@@ -114,11 +116,9 @@ h1 {
 #tableOne {
   width: 100%;
   font-family: 'Raleway', sans-serif;
-}
-
-#tableOne.td {
   text-align: left;
 }
+
 
 #tableTwo {
   border-bottom: 1px dotted darkgrey;
@@ -127,8 +127,8 @@ h1 {
 
 #time {
   text-align: center;
-  font-size: 4em;
-  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6em;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #timeDiv {
@@ -139,9 +139,8 @@ h1 {
   margin-right: 30%;
 }
 
-}
-/* NEED TO FIX THIS */
-tr, td {
-    border-bottom: 1px solid #ddd;
-    text-align: left;
+#tableRow {
+  border-bottom: 1px dotted darkgrey;
+  margin-top: 1px;
+  margin-bottom: 1px;
 }

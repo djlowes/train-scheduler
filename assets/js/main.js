@@ -20,33 +20,26 @@ timer = setInterval(function() {
 //On Click, update database
 $("#submit-train").on("click", function(event) {
   event.preventDefault();
-  //Timestamp we can use for each Input
-  //var timeStamp = firebase.database.ServerValue.TIMESTAMP;
   //Assign Variables to Input Values
   trainName = $("#train-name").val().trim();
   destination = $("#destination").val().trim();
   firstTrain = $("#first-train-time").val().trim();
   frequency = $("#frequency").val().trim()
-  //Make sure variables have time values for calculation
-  var timeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
-  var minConverted = moment(frequency, "hh:mm").subtract(1, "years");
-
-  var currentTime = moment();
-  var inMinutes = moment().diff(moment(timeConverted), "minutes");
-  var inMinutes2 = moment().diff(moment(minConverted), "minutes");
-  var tRemainder = inMinutes % inMinutes2;
-  minutesAway = inMinutes2 - tRemainder;
-  nextArrival = moment().add(minutesAway, "minutes");
-
-  //var train = new Date(firstTrain).getTime() / 1000
   //Calculations
-
-  //var nextArrival = new Array(1000 - frequency--);
-//  console.log(nextArrival);
-  //console.log(typeof nextArrival)
-  //console.log(typeof time)
-
-  //Push to database
+  var timeConverted = moment(firstTrain, "HH:mm").subtract(1, "years");
+  console.log(timeConverted);
+  let time = moment();
+  console.log(time);
+  var diffTime = moment(time).diff(moment(timeConverted), "minutes");
+  console.log("Time difference in mins = " + diffTime);
+  var tRemainder = diffTime % frequency;
+  console.log("Leftover mins = " + tRemainder);
+  var minutesAway = frequency - tRemainder;
+  console.log("Next train in mins = " + minutesAway);
+  var nextArrival = moment().add(minutesAway, "minutes").format("HH:mm");
+  console.log("Next arrivan in mins = " + nextArrival)
+  console.log("first train = " + firstTrain)
+  //Push to DB from click
   dataRef.ref().push({
       trainName: trainName,
       destination: destination,
@@ -55,21 +48,22 @@ $("#submit-train").on("click", function(event) {
       minutesAway: minutesAway,
   })
 });
-  //Pull from DB
+
+  //Pull from DB to display inputs and calculations
   dataRef.ref().on("child_added", function(childSnapshot) {
   //Create Rows for Table
   var tableRow = $('<tr>');
+  //Assign ID for style
+  $(tableRow).attr("id", "tableRow");
   var tableDataString =
   "<td>" + childSnapshot.val().trainName + "</td>" +
   "<td>" + childSnapshot.val().destination + "</td>" +
   "<td>" + childSnapshot.val().frequency + "</td>" +
-  "<td>" + 0 + "</td>" +
-  "<td>" + 0 + "</td>";
+  "<td>" + childSnapshot.val().nextArrival + "</td>" +
+  "<td>" + childSnapshot.val().minutesAway + "</td>";
   var trainTable = $("#tableOne");
-
-  //tableRow.attr("id", Date.now());
   tableRow.append(tableDataString);
-  trainTable.append(tableRow)
+  trainTable.append(tableRow);
   //Reset form so previous values dissapear
   $("form").trigger("reset");
 });
